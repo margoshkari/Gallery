@@ -21,6 +21,7 @@ namespace Gallery
         }
         private void OpenFile()
         {
+            int imageIndex = 0;
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Filter = "Images|*.png; *.jpg; *.jpeg";
@@ -34,6 +35,15 @@ namespace Gallery
                         foreach (var item in Directory.GetFiles(directoryPath, filterItem))
                         {
                             images.Add(item);
+                        }
+                    }
+                    foreach (var item in this.pictureBoxes)
+                    {
+                        if (imageIndex + 1 <= images.Count())
+                        {
+                            item.Image = Image.FromFile(images[imageIndex]);
+                            item.Name = images[imageIndex];
+                            imageIndex++;
                         }
                     }
                 }
@@ -68,8 +78,11 @@ namespace Gallery
 
         private void pictureBoxes_Click(object sender, System.EventArgs e)
         {
-            imagePath = this.Controls[(sender as PictureBox)?.Name].Name;
-            this.pictureBox.Image = Image.FromFile(imagePath);
+            if((sender as PictureBox)?.Name != string.Empty)
+            {
+                imagePath = this.Controls[(sender as PictureBox)?.Name].Name;
+                this.pictureBox.Image = Image.FromFile(imagePath);
+            }
         }
     }
 }

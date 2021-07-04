@@ -90,6 +90,7 @@ namespace Gallery
                 this.pictureBoxes.Add(new PictureBox());
                 this.pictureBoxes[i].Size = new System.Drawing.Size(100, 80);
                 this.pictureBoxes[i].Location = new System.Drawing.Point(posX, posY);
+                this.pictureBoxes[i].SizeMode = PictureBoxSizeMode.Zoom;
                 posX += 110;
                 this.Controls.Add(this.pictureBoxes[i]);
                 this.pictureBoxes[i].Click += pictureBoxes_Click;
