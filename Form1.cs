@@ -20,14 +20,14 @@ namespace Gallery
         public Form1()
         {
             InitializeComponent();
-            filters.AddRange(new string[] { "*.png", "*.jpg" });
+            filters.AddRange(new string[] { "*.png", "*.jpg", "*.jpeg" });
             OpenFile();
         }
         private void OpenFile()
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
-                dialog.Filter = "Images|*.png; *.jpg";
+                dialog.Filter = "Images|*.png; *.jpg; *.jpeg";
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     imagePath = dialog.FileName;
@@ -62,6 +62,12 @@ namespace Gallery
                 imagePath = images[--index];
                 this.pictureBox.Image = Image.FromFile(imagePath);
             }
+        }
+
+        private void allImagesBtn_Click(object sender, EventArgs e)
+        {
+            images.Clear();
+            OpenFile();
         }
     }
 }

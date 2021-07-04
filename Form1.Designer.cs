@@ -32,6 +32,7 @@ namespace Gallery
             this.prevBtn = new System.Windows.Forms.Button();
             this.nextBtn = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.allImagesBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,11 +68,22 @@ namespace Gallery
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
             // 
+            // allImagesBtn
+            // 
+            this.allImagesBtn.Location = new System.Drawing.Point(748, 317);
+            this.allImagesBtn.Name = "allImagesBtn";
+            this.allImagesBtn.Size = new System.Drawing.Size(40, 38);
+            this.allImagesBtn.TabIndex = 3;
+            this.allImagesBtn.Text = "All";
+            this.allImagesBtn.UseVisualStyleBackColor = true;
+            this.allImagesBtn.Click += new System.EventHandler(this.allImagesBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.allImagesBtn);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.nextBtn);
             this.Controls.Add(this.prevBtn);
@@ -87,6 +99,7 @@ namespace Gallery
         private System.Windows.Forms.Button prevBtn;
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Button allImagesBtn;
     }
 }
 
