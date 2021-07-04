@@ -45,6 +45,13 @@ namespace Gallery
                             item.Name = images[imageIndex];
                             imageIndex++;
                         }
+                        else
+                        {
+                            if (item.Image != null)
+                                item.Image = null;
+                            item.Name = string.Empty;
+                        }
+
                     }
                 }
             }
@@ -58,6 +65,14 @@ namespace Gallery
                 imagePath = images[++index];
                 this.pictureBox.Image = Image.FromFile(imagePath);
             }
+            if(images.Count() > this.pictureBoxes.Count())
+            {
+                for (int i = 0; i < this.pictureBoxes.Count(); i++)
+                {
+                    this.pictureBoxes[i].Image = Image.FromFile(images[i + 1]);
+                    this.pictureBoxes[i].Name = images[i + 1];
+                }
+            }
         }
 
         private void prevBtn_Click(object sender, EventArgs e)
@@ -67,6 +82,14 @@ namespace Gallery
             {
                 imagePath = images[--index];
                 this.pictureBox.Image = Image.FromFile(imagePath);
+            }
+            if (images.Count() > this.pictureBoxes.Count())
+            {
+                for (int i = this.pictureBoxes.Count() - 1; i >= 0; i--)
+                {
+                    this.pictureBoxes[i].Image = Image.FromFile(images[i]);
+                    this.pictureBoxes[i].Name = images[i];
+                }
             }
         }
 

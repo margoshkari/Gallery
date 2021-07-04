@@ -85,7 +85,7 @@ namespace Gallery
             //pictureBoxes
             //
             int posX = 0, posY = this.pictureBox.Location.Y + this.pictureBox.Height + 10;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 8; i++)
             {
                 this.pictureBoxes.Add(new PictureBox());
                 this.pictureBoxes[i].Size = new System.Drawing.Size(100, 80);
