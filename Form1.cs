@@ -46,12 +46,22 @@ namespace Gallery
 
         private void nextBtn_Click(object sender, EventArgs e)
         {
-
+            int index = images.IndexOf(imagePath);
+            if (index + 1 < images.Count())
+            {
+                imagePath = images[++index];
+                this.pictureBox.Image = Image.FromFile(imagePath);
+            }
         }
 
         private void prevBtn_Click(object sender, EventArgs e)
         {
-
+            int index = images.IndexOf(imagePath);
+            if (index - 1 >= 0)
+            {
+                imagePath = images[--index];
+                this.pictureBox.Image = Image.FromFile(imagePath);
+            }
         }
     }
 }
