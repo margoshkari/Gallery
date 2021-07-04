@@ -92,6 +92,7 @@ namespace Gallery
                 this.pictureBoxes[i].Location = new System.Drawing.Point(posX, posY);
                 posX += 110;
                 this.Controls.Add(this.pictureBoxes[i]);
+                this.pictureBoxes[i].Click += pictureBoxes_Click;
             }
             // 
             // Form1

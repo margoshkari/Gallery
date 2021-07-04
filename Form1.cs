@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gallery
@@ -68,6 +64,12 @@ namespace Gallery
         {
             images.Clear();
             OpenFile();
+        }
+
+        private void pictureBoxes_Click(object sender, System.EventArgs e)
+        {
+            imagePath = this.Controls[(sender as PictureBox)?.Name].Name;
+            this.pictureBox.Image = Image.FromFile(imagePath);
         }
     }
 }
