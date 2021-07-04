@@ -1,4 +1,8 @@
 ﻿
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace Gallery
 {
     partial class Form1
@@ -77,6 +81,18 @@ namespace Gallery
             this.allImagesBtn.Text = "All";
             this.allImagesBtn.UseVisualStyleBackColor = true;
             this.allImagesBtn.Click += new System.EventHandler(this.allImagesBtn_Click);
+            //
+            //pictureBoxes
+            //
+            int posX = 0, posY = this.pictureBox.Location.Y + this.pictureBox.Height + 10;
+            for (int i = 0; i < 10; i++)
+            {
+                this.pictureBoxes.Add(new PictureBox());
+                this.pictureBoxes[i].Size = new System.Drawing.Size(100, 80);
+                this.pictureBoxes[i].Location = new System.Drawing.Point(posX, posY);
+                posX += 110;
+                this.Controls.Add(this.pictureBoxes[i]);
+            }
             // 
             // Form1
             // 
@@ -100,6 +116,7 @@ namespace Gallery
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button allImagesBtn;
+        private List<PictureBox> pictureBoxes = new List<PictureBox>();
     }
 }
 
